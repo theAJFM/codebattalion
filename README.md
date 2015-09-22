@@ -1,26 +1,29 @@
+   _____          _      _           _   _        _ _             
+  / ____|        | |    | |         | | | |      | (_)            
+ | |     ___   __| | ___| |__   __ _| |_| |_ __ _| |_  ___  _ __  
+ | |    / _ \ / _` |/ _ \ '_ \ / _` | __| __/ _` | | |/ _ \| '_ \ 
+ | |___| (_) | (_| |  __/ |_) | (_| | |_| || (_| | | | (_) | | | |
+  \_____\___/ \__,_|\___|_.__/ \__,_|\__|\__\__,_|_|_|\___/|_| |_|
+                                                                  
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Ascii art. Why the hell not?
 
+## WTH?
 
-Welcome to your Rails project on Cloud9 IDE!
+A competitive programming site fully built on top of ruby. Fueled significantly by the Dropbox API (Can't afford an S3 account just yet). Currently only supports ruby and python submissions (Java doesn't work... yet)
 
-To get started, just do the following:
+## What's available here...
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://codebattalion-theajfm.c9.io/).
+Some features that you commonly find in competitive programming sites, like leaderboard, problem submission, problem creation, and a text editor. Submission viewing is unfortunately not available at the moment. 
 
-Happy coding!
-The Cloud9 IDE team
+## For Windows users
 
+You're out of luck. This doesn't work at all on a machine with Windows 8 or above. Every submission needs to be limited with timeouts and so far, I only figure out how to do this by capturing kernel ticks. Pretty sure that most modern Windows OS, including Windows 8 and 10, use tickless kernel.
 
-## Support & Documentation
+To try out this app, just do the following:
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
-# codebattalion
-# codebattalion
+1. Install ruby + rails if you haven't.
+2. Some seeds are available for the db, you can choose to modify it and reset the whole migration. Otherwise, just skip this part.
+3. Get a Dropbox account and connect this app to your account to get an API key.
+4. Run the server using the 'rails s' command.
+5. Enjoy!

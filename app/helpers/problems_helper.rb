@@ -2,7 +2,7 @@ require 'dropbox_sdk'
 require 'open3'
 module ProblemsHelper
     def dropbox_connect(input_file, output_file, id)
-        access_token = 'RpwCcAJjNPEAAAAAAAAC205fPJychmeRRNdxiXllX0AP210-gR28Np6ZVJYnVpPF'.strip
+        access_token = 'secret'.strip #Get your own token!! The previous one is no longer valid (intentionally)
         
         client = DropboxClient.new(access_token)
         puts "linked account:", client.account_info().inspect
@@ -25,7 +25,7 @@ module ProblemsHelper
     
     def check_solution(input_file, language, output_name, problem_id)
         inputs = []
-        access_token = 'RpwCcAJjNPEAAAAAAAAC205fPJychmeRRNdxiXllX0AP210-gR28Np6ZVJYnVpPF'.strip
+        access_token = 'secret'.strip
         
         client = DropboxClient.new(access_token)
         puts "linked account:", client.account_info().inspect
@@ -59,7 +59,7 @@ module ProblemsHelper
     
     def match_solution(submission_result, problem_id)
         actual_result = []
-        access_token = 'RpwCcAJjNPEAAAAAAAAC205fPJychmeRRNdxiXllX0AP210-gR28Np6ZVJYnVpPF'.strip
+        access_token = 'secret'.strip
         
         client = DropboxClient.new(access_token)
         puts "linked account:", client.account_info().inspect
@@ -73,7 +73,7 @@ module ProblemsHelper
         submission_result == actual_result
     end
     
-    private
+    private #Thanks whoever made this. Changed the output taken as sterr needs to be captured as well.
     def run_with_timeout(command, timeout, tick, inputs)
       output = ''
       output_error = []
