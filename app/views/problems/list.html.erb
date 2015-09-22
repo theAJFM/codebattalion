@@ -1,0 +1,61 @@
+<% content_for :title, "List of created problems" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? and current_user_type == "hacker"%>
+          		<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li>
+	          <a href="../create_problem">Create Problem</a>
+	        </li>
+	        <li class="active">
+	          <a href="#">Manage Problems</a>
+	        </li>
+          <% if logged_in? %>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+	<h3 class = "text-center">Problems created by <%= current_user.username%></h3>
+	<div class = "row">
+		<div class="table-responsive">
+		  <table class="table">
+		  	<tr>
+		  		<th>Problem name</th>
+		  		<th>Bundle</th>
+		  		<th>Points</th>
+		  		<th>Options</th>
+		  	</tr>
+		  	<% @problems_created.each do |a| %>
+		  	<tr>
+		  	    <td><%= a.ProblemName %></td>
+		  	    <td><%= Bundle.find_by(ID_BUNDLE_KEY: a.ID_BUNDLE_FKEY).BundleName %></td>
+		  	    <td><%= a.Points %></td>
+		  	    <td><a class="btn btn-primary btn-large" href="../edit/<%= a.id%>">Edit</a></td>
+		  	</tr>
+		  	<% end %>
+		  </table>
+		</div>
+	</div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>        
+    var editor = new MediumEditor('.editable', {
+        buttons: ['bold', 'italic', 'header1', 'header2', 'underline', 'quote', 'anchor', 'superscript', 'subscript', 'orderedlist', 'unorderedlist', 'pre', 'outdent', 'indent']
+    });
+</script>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_PROBLEM_SETTER_KEY: 1
+  FirstName: MyString
+  Lastname: MyString
+  Username: MyString
+  TotalProblemUploaded: 1
+  LastLoginTime: 2015-01-10
+
+two:
+  ID_PROBLEM_SETTER_KEY: 1
+  FirstName: MyString
+  Lastname: MyString
+  Username: MyString
+  TotalProblemUploaded: 1
+  LastLoginTime: 2015-01-10

@@ -1,0 +1,59 @@
+<% content_for :title, "Leaderboard" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? %>
+          	<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li>
+	          <a href="../problems">Problems</a>
+	        </li>
+	        <li class="active">
+	          <a href="#">Leaderboard</a>
+	        </li>
+          <% if logged_in? %>
+          <li>
+	          <a href="../submissions/<%= current_user.id%>">Submissions</a>
+	        </li>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+	<h3 class = "text-center">Leaderboard</h3>
+	<div class = "row">
+		<div class="table-responsive">
+		  <table class="table">
+		  	<tr>
+		  		<th>Rank</th>
+		  		<th>Username</th>
+		  		<th>Rating</th>
+		  	</tr>
+		  	<% @hackers.each do |a| %>
+		  	<tr>
+		  		<td><%= @count+=1%></td>
+		  		<td><a href="../profile/<%= a.username%>"><%= a.username%></a></td>
+		  		<td><%= a.rating%></td>
+		  	</tr>
+		  	<% end %>
+		  </table>
+		</div>
+	</div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+

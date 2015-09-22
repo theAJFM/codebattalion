@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= yield :title%></title>
+  <link href="https://dl.dropboxusercontent.com/u/112334095/cs211-assets/css/bootstrap.css" rel="stylesheet">
+  <link href="https://dl.dropboxusercontent.com/u/112334095/cs211-assets/css/flat-ui.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/chartist/0.6.0/chartist.min.css' rel='stylesheet type='text/css'>
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= stylesheet_link_tag "medium-editor/medium-editor.css" %>
+  <%= stylesheet_link_tag "medium-editor/themes/default.css" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body data-no-turbolink>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_SUBMISSION_KEY: 1
+  ID_PROBLEM_FKEY: 1
+  SubmissionInputURL: MyString
+  SubmissionOutputURL: MyString
+  SubmissionTime: 2015-01-10 09:35:21
+
+two:
+  ID_SUBMISSION_KEY: 1
+  ID_PROBLEM_FKEY: 1
+  SubmissionInputURL: MyString
+  SubmissionOutputURL: MyString
+  SubmissionTime: 2015-01-10 09:35:21

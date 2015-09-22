@@ -1,0 +1,131 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$orange-normal: #ef672f;
+$orange-darker: #c14800;
+$blackish: #232931;
+$primary-font: 'proxima_nova_rgregular';
+$title-font: 'Roboto Slab', serif;
+$font-size: 1.2em;
+html, body
+{
+    height: 100%;
+}
+body{
+	font-family: $primary-font;
+}
+p{
+	font-size: $font-size;
+}
+@font-face{
+    font-family: $primary-font;
+    src:url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.eot');
+    src:url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.woff') format('woff'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.ttf') format('truetype'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar{
+	background-color:$orange-normal;
+	color: #fff;
+	font-family:$title-font;
+}
+.btn-primary {
+	color: #fff;
+	background-color: $orange-normal;
+}
+.btn-primary:hover {
+	background-color: $orange-darker;
+}
+
+.btn-primary:focus {
+	background-color: $orange-normal;
+}
+#section {
+	background: rgba(0,0,0,0.5) url("https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/header-dotgrid.png") repeat center center;
+	width: 100%;
+	max-width: 100%;
+	padding: 8em 0;
+	height: 73%;
+	z-index: 1;
+	position: relative;
+	color: #fff;
+	font-size: 1.2em;
+	width: 100%;
+	.btn-primary {
+	font-size: 1em;
+	}
+}
+.navbar{
+	margin:0;
+}
+
+.container {
+	width: 100%;
+	margin:0;
+	padding:0;
+}
+
+.login-sx {
+	background-color: $orange-normal;
+	min-height: 473px;
+	height: 100%;
+
+	h1{
+		color: #fff;
+		font-family:$title-font;
+	}
+}
+
+.login-link:hover{
+	color: $orange-normal;
+}
+
+.login-form .login-field:focus {
+  border-color: $orange-normal;
+}
+
+.login-form .login-field:focus + .login-field-icon {
+  color: $orange-normal;
+}
+
+.form-control{
+	font-family:$primary-font;
+}
+
+.form-control:focus{
+    border-color: $orange-normal;
+}
+
+.navbar-default .navbar-form .form-control:focus {
+    border-color: $orange-normal;
+    color: $orange-normal;
+}
+
+.row{
+	margin:0;
+}
+
+.btn, .btn:hover, .btn:focus{
+	
+	a{
+		color:#fff;
+	}
+}
+
+.btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+	background: transparent;
+	border-color: transparent;
+	color: $orange-normal;
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+#error_explanation{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

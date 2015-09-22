@@ -1,0 +1,67 @@
+<% content_for :title, "Edit" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? %>
+          	<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li>
+	          <a href="../problems">Problems</a>
+	        </li>
+	        <li class="active">
+	          <a href="#">Leaderboard</a>
+	        </li>
+          <% if logged_in? %>
+          <li>
+	          <a href="../submissions/<%= current_user.id%>">Submissions</a>
+	        </li>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+	<% if current_user.errors.any? %>
+	<div id="error_explanation">
+	    <% current_user.errors.full_messages.each do |msg| %>
+  			      <li><%= msg %></li>
+  			    <% end %>
+  			    </ul>
+  		</div>
+  	<% end %>
+    <%= form_for :profiledit, url: {action: "editprof"} do |f| %>
+    <div class="form-group">
+        <label for="InputFirstname">First Name</label><br/>
+        <input type="text" class="form-control login-field" name = "newfirstname" value = "<%= current_user.firstname%>" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <label for="InputLastname">Last Name</label><br/>
+        <input type="text" class="form-control login-field" name = "newlastname" value = "<%= current_user.lastname%>" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+        <label for="InputEmail">Email</label><br/>
+        <input type="email" class="form-control login-field" name = "newemail" value = "<%= current_user.email%>" placeholder="Email (required)" required>
+    </div>
+    <div class="form-group">
+        <label for="InputUsername">Username</label><br/>
+        <input type="text" class="form-control login-field" name = "newusername" value = "<%= current_user.username%>" placeholder="Username (required)" required>
+    </div>
+    <%= f.submit "Save Profile", class: "btn btn-primary btn-large"%>
+    <% end %>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+

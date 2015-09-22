@@ -1,0 +1,58 @@
+<% content_for :title, "Create Problem" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? and current_user_type == "hacker"%>
+          		<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li class="active">
+	          <a href="#">Create Problem</a>
+	        </li>
+	        <li>
+	          <a href="../list_of_created">Manage Problems</a>
+	        </li>
+          <% if logged_in? %>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+    <%= form_for :problem_input, url: {action: "new"}, html: {id: "postproblem"} do |f| %>
+    <%= f.text_field :problemname, placeholder:"Problem Name", class:"form-control input-hg", autocomplete:"off", :required => true%><br/>
+    <%= f.hidden_field :content, id: "content" %>
+    <%= f.hidden_field :psetter, val: current_user.id %>
+    Bundle: <%= select_tag(:bundle_option, options_for_select(@bundle_select))%>&nbsp;&nbsp;
+    Points: <%= select_tag(:point_option, options_for_select([[5, 5], [10, 10], [20, 20], [50, 50], [100, 100]])) %>
+    <hr/>
+    <div class="editable"></div>
+    <hr/>
+    <div class="col-xs-6 i-o">
+        <%= text_area(:problem_input, :input, rows: 10, placeholder: 'Input')%>
+    </div>
+    <div class="col-xs-6 i-o">
+        <%= text_area(:problem_input, :output, rows: 10, placeholder: 'Output')%>
+    </div>
+    <hr/>
+    <%= f.submit 'Create Problem', id: "submit-button", class: "btn btn-primary btn-large", onclick: "return form_sub()"%>
+    <% end %>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>        
+    var editor = new MediumEditor('.editable', {
+        buttons: ['bold', 'italic', 'header1', 'header2', 'underline', 'quote', 'anchor', 'superscript', 'subscript', 'orderedlist', 'unorderedlist', 'pre', 'outdent', 'indent']
+    });
+</script>

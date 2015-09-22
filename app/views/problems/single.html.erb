@@ -1,0 +1,39 @@
+<% content_for :title, "Problem" %>
+<%= form_for :submit_answer, url: {action: "submit_result"} do |f| %>
+    <div class = "col-lg-6 problem-board" style="padding:0">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <% if logged_in? and current_user_type == "hacker"%>
+            <a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+            <% end %>
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a href="../" class="navbar-brand">Codebattalion</a>
+              </div>
+            </div>
+          </nav>
+          <div class="row prob-content" style="margin:15px 15px">
+              <h4 align><%= @problem_info[:ProblemName].html_safe %>
+              <div class="btn-group language-selection" style="float:right">
+                  <%= select_tag(:language, options_for_select([['Ruby', 'ruby'], ['Python', 'python'], ['Java', 'java']])) %>
+              </div>
+              </h4>
+              <%= f.hidden_field :code, id: "code" %>
+              <%= f.hidden_field :problem_id, :value => params[:id] %>
+              <div class="row" style="margin:-15px 0px 15px 0px; font-size:16px"><i>Created by <a href="#"><%= @psetter.username%></a> on <%= Date::MONTHNAMES[@problem_info[:created_at].month]%> <%= @problem_info[:created_at].day%> <%= @problem_info[:created_at].year%></i></div>
+              <div class="row" style="margin:0px 0px"><b>Bundle: <%= @bundlename[:BundleName]%></b></div>
+              <hr/>
+    
+               <%= @problem_info[:ProblemDescription].html_safe %>
+               <% @subout = "Submit Answer - #{@problem_info[:Points]} Points" %>
+               <% if logged_in? and current_user_type == "hacker"%>
+               <%= f.submit @subout, id: "submit-button", class: "btn btn-primary btn-large", onclick: "return code_sub()"%>
+               <% else %>
+               <%= link_to "Login to submit solution", login_path, {class: "btn btn-primary btn-large"}%>
+               <% end %>
+          </div>
+    </div>
+    <div id="editor" class = "col-lg-6">#Enter your code here. Read input from STDIN. Print output to STDOUT</div>
+<% end %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/ace-edit.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

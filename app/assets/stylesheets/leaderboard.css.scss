@@ -1,0 +1,63 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$orange-normal: #ef672f;
+$orange-darker: #c14800;
+$blackish: #232931;
+$primary-font: 'proxima_nova_rgregular';
+$title-font: 'Roboto Slab', serif;
+$font-size: 1.2em;
+body{
+	font-family: $primary-font;
+}
+p{
+	font-size: $font-size;
+}
+@font-face{
+    font-family: $primary-font;
+    src:url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.eot');
+    src:url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.woff') format('woff'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.ttf') format('truetype'),
+        url('https://dl.dropboxusercontent.com/u/112334095/cs211-assets/fonts/proxima-nova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar{
+	background-color:$orange-normal;
+	color: #fff;
+	font-family:$title-font;
+}
+.btn-primary {
+	color: #fff;
+	background-color: $orange-normal;
+}
+.btn-primary:hover {
+	background-color: $orange-darker;
+}
+.navbar{
+	li.active{
+		background-color:$orange-darker;
+	}
+	a{
+		color:#fff;
+	}
+}
+.navbar-toggle:hover:before, .navbar-toggle:focus:before, .navbar-toggle:before {
+	color: #fff;
+}
+
+.panel-default{
+	border-color: $orange-normal;
+	.panel-heading{
+		color: #fff;
+		background-color: $orange-normal;
+		border-color: $orange-normal;
+	}
+}
+
+.panel-body{
+	ul{
+		font-weight:bold;
+	}
+}

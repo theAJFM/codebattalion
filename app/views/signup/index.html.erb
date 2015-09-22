@@ -1,0 +1,42 @@
+<% content_for :title, "Signup" %>
+      <div class="login-sx row">
+          <%= form_for :signup, url: {action: "create"} do |f| %>
+          <h1 align = "center">CODEBATTALION</h1>
+  			  <% if @created_hacker.errors.any? %>
+  			  <div id="error_explanation">
+  			    <% @created_hacker.errors.full_messages.each do |msg| %>
+  			      <li><%= msg %></li>
+  			    <% end %>
+  			    </ul>
+  			  </div>
+  			  <% end %>
+            <div class="col-lg-4"></div>
+          <div class="login-form col-lg-4">
+            <div class="form-group">
+              <div class = "text-center">
+                <div class="btn-group btn-group-lg" role="group" aria-label="...">
+                  <a type="button" class="btn btn-primary special" href = "../login">Log in</a>
+                  <a type="button" class="btn btn-default active">Sign up</a>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <%= f.text_field :email , placeholder: "Email", class:"form-control login-field", :required => true%>
+                <label class="login-field-icon fui-mail" for="login-name"></label>
+            </div>
+
+            <div class="form-group">
+                <%= f.text_field :username , placeholder:"Username", class:"form-control login-field", :required => true%>
+                <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password, placeholder:"Password", class:"form-control login-field", :required => true %>
+              <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+            <div id = "emptyField"></div>
+            <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="col-lg-4"></div>
+         <% end %>
+      </div>

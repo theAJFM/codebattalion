@@ -1,0 +1,21 @@
+// Place all the styles related to the error controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$orange-normal: #ef672f;
+$title-font: 'Roboto Slab', serif;
+body{
+    color: #fff;
+    font-family: $title-font;
+    
+    .row{
+        background:$orange-normal;
+    }
+    .full{
+        height:100vh;
+        background:url(https://dl.dropboxusercontent.com/u/112334095/cs211-assets/img/IMG_20150122_182529.jpg) no-repeat; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+}

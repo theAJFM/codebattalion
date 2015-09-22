@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_PROBLEM_KEY: 1
+  ProblemName: MyString
+  ProblemDescription: MyText
+  ProblemTimeUploaded: 2015-01-10
+  TotalHackerSolved: 1
+
+two:
+  ID_PROBLEM_KEY: 1
+  ProblemName: MyString
+  ProblemDescription: MyText
+  ProblemTimeUploaded: 2015-01-10
+  TotalHackerSolved: 1

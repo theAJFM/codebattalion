@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_BUNDLE_KEY: 1
+  BundleName: 
+  BundleDescription: 
+  TotalProblemUploaded: 1
+  ID_PROBLEM_SETTER_FKEY: 1
+
+two:
+  ID_BUNDLE_KEY: 1
+  BundleName: 
+  BundleDescription: 
+  TotalProblemUploaded: 1
+  ID_PROBLEM_SETTER_FKEY: 1

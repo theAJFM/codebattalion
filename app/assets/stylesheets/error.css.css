@@ -1,0 +1,15 @@
+body {
+  background: url(https://dl.dropboxusercontent.com/u/112334095/cs211-assets/img/IMG_20150122_182529.jpg) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #ef672f;
+  font-family: "Roboto Slab", serif; }
+  body .row {
+    background: #fff; }
+  body .full {
+    height: 100%;
+    background: #fff; }
+
+/*# sourceMappingURL=error.css.css.map */

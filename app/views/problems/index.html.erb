@@ -1,0 +1,112 @@
+<% content_for :title, "Problems" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? %>
+          		<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li class="active">
+	          <a href="#">Problems</a>
+	        </li>
+	        <li>
+	          <a href="../leaderboard">Leaderboard</a>
+	        </li>
+          <% if logged_in? %>
+          <li>
+	          <a href="../submissions/<%= current_user.id%>">Submissions</a>
+	        </li>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+	<h3 class = "text-center">Problem Types</h3>
+	<div class = "row">
+		<%= form_for :search_query, url: {action: "search"} do |f| %>
+		<div class="input-group">
+		<%= f.text_field :keyword, placeholder:"Search Problems", class:"form-control", id:"search-query-3" %>
+	  <span class="input-group-btn">
+	    <button type="submit" class="btn"><span class="fui-search"></span></button>
+	  </span>
+		</div>
+		<% end %>
+		<br/>
+		<div class = "col-lg-6 col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Algorithms</h3>
+			  </div>
+			  <div class="panel-body">
+			  	Cool name and cool way of solving problems
+			    <ul>
+			    	<% @algorithms.each do |f|%>
+			    	<li><a href = "../problems/<%= f.ID_PROBLEM_KEY%>"><%= f.ProblemName %></a></li>
+			    	<% end %>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+		<div class = "col-lg-6 col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Machine Learning</h3>
+			  </div>
+			  <div class="panel-body">
+			  	No machines involved. Just learning, a ton of 'em.
+			    <ul>
+			    	<% @machine_learning.each do |f|%>
+			    	<li><a href = "../problems/<%= f.ID_PROBLEM_KEY%>"><%= f.ProblemName %></a></li>
+			    	<% end %>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-lg-6 col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Miscellaneous</h3>
+			  </div>
+			  <div class="panel-body">
+			  	Sigh.. Deciding what kinds of problems these are is a problem in itself.
+			    <ul>
+			    	<% @miscellaneous.each do |f|%>
+			    	<li><a href = "../problems/<%= f.ID_PROBLEM_KEY%>"><%= f.ProblemName %></a></li>
+			    	<% end %>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+		<div class = "col-lg-6 col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Mathematics</h3>
+			  </div>
+			  <div class="panel-body">
+			  	Boring? Not if you code it out.
+			    <ul>
+			    	<% @mathematics.each do |f|%>
+			    	<li><a href = "../problems/<%= f.ID_PROBLEM_KEY%>"><%= f.ProblemName %></a></li>
+			    	<% end %>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

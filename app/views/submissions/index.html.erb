@@ -1,0 +1,60 @@
+<% content_for :title, "Submissions" %>
+<nav class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Codebattalion</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          	<% if logged_in? %>
+          	<a href="../profile/<%= current_user.username %>" class="navbar-brand" style="float:right"><%= current_user.username %></a>
+          	<% end %>
+	        <ul class="nav navbar-nav">
+	        <li>
+	          <a href="../problems">Problems</a>
+	        </li>
+	        <li>
+	          <a href="../leaderboard">Leaderboard</a>
+	        </li>
+          <% if logged_in? %>
+            <li class="active">
+	          <a href="#">Submissions</a>
+	        </li>
+	        <li>
+	          <a href="../logout">Logout</a>
+	        </li>
+          <% end %>
+	      </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div class = "container">
+	<h3 class = "text-center">Submission of <%= current_user.username%></h3>
+	<div class = "row">
+		<div class="table-responsive">
+		  <table class="table">
+		  	<tr>
+		  		<th>Problem name</th>
+		  		<th>Language</th>
+		  		<th>Status</th>
+		  		<th>Submission date & time</th>
+		  	</tr>
+		  	<% @submission_list.each do |a| %>
+		  	<tr>
+		  		<td><%= Problem.find_by(ID_PROBLEM_KEY: a.ID_PROBLEM_FKEY).ProblemName%></td>
+		  		<td><%= a.Language%></td>
+		  		<td><%= @status_list[a.Verdict]%></td>
+		  		<td><%= a.created_at %></td>
+		  	</tr>
+		  	<% end %>
+		  </table>
+		</div>
+	</div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

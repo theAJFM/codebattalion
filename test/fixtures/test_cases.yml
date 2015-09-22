@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_TEST_CASES_KEY: 1
+  ID_PROBLEM_FKEY: 1
+  TestCaseInputURL: MyString
+  TestCaseOutputURL: MyString
+
+two:
+  ID_TEST_CASES_KEY: 1
+  ID_PROBLEM_FKEY: 1
+  TestCaseInputURL: MyString
+  TestCaseOutputURL: MyString
